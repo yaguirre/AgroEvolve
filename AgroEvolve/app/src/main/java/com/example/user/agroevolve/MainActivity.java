@@ -3,7 +3,6 @@ package com.example.user.agroevolve;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.Fragment;
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -91,20 +90,17 @@ public class MainActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-
-
         if (id == R.id.nav_camera) {
 
         } else if (id == R.id.nav_gallery) {
-
+            ImportFragment importFragment = new ImportFragment();
+            fragmentTransaction.replace(R.id.escenario,importFragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
-            MainFragment fragment = new MainFragment();
-            fragmentTransaction.add(R.id.content_main, fragment);
-            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_send) {
 
