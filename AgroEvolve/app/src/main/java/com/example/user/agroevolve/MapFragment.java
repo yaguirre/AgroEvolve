@@ -99,10 +99,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         mGoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
+
+        //aqui se agregan marcadores estos pueden ayudar a marcar las zonas infectadas y poner mensajes
         googleMap.addMarker(new MarkerOptions().position(new LatLng(40.689247, -74.044502)).title("stadddff liberty").snippet("I hop to go ther some day"));
         googleMap.addMarker(new MarkerOptions().position(new LatLng(40.689248, -74.044503)).title("zona de noseque ").snippet("ajjajajajajaj day"));
 
-
+        //aqui se establece la camara que ayuda esta se puede limitar a solo ver la finca 
         CameraPosition Liberty = CameraPosition.builder().target(new LatLng(40.689247, -74.044502)).zoom(16).bearing(0).tilt(45).build();
 
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
