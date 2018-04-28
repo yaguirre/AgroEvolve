@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.File;
+import java.io.InputStream;
 
 
 /**
@@ -73,6 +74,12 @@ public class ImportFragment extends Fragment {
         photoPickerIntent.setDataAndType(data,"image/jpg");
 
         startActivityForResult(photoPickerIntent, IMAGE_GALLERY_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+
     }
 
     @Override
