@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.Fragment;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,7 +20,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ImportFragment.OnFragmentInteractionListener,MapFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +97,10 @@ public class MainActivity extends AppCompatActivity
             ImportFragment importFragment = new ImportFragment();
             fragmentTransaction.replace(R.id.escenario,importFragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_mapa) {
+            MapFragment mapFragment = new MapFragment();
+            fragmentTransaction.replace(R.id.escenario,mapFragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -109,5 +112,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
