@@ -14,13 +14,6 @@ import java.net.MalformedURLException;
 
 public class Conexion {
 
-    public static void main(){
-
-    }
-
-    public Conexion() {
-    }
-
     public void crearconexion(){
         HttpURLConnection conn = null;
         DataOutputStream dos = null;
@@ -33,7 +26,7 @@ public class Conexion {
         try
         {
             //------------------ CLIENT REQUEST
-            FileInputStream fileInputStream = new FileInputStream(new File() );
+            FileInputStream fileInputStream = new FileInputStream(new File("") );
             // open a URL connection to the Servlet
             URL url = new URL(urlString);
             // Open a HTTP connection to the URL
@@ -50,7 +43,7 @@ public class Conexion {
             conn.setRequestProperty("Content-Type", "multipart/form-data;boundary="+"    ");
             dos = new DataOutputStream( conn.getOutputStream() );
             dos.writeBytes(lineEnd);
-            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + path + "\"" + lineEnd);
+            dos.writeBytes("Content-Disposition: form-data; name=\"uploadedfile\";filename=\"" + "" + "\"" + lineEnd);
             dos.writeBytes(lineEnd);
 
             // create a buffer of maximum size
