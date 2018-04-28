@@ -1,11 +1,16 @@
 package com.example.user.agroevolve.Conectar;
 
+import android.util.Log;
+
 import java.net.HttpURLConnection;
 import java.io.DataOutputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 
 public class Conexion {
 
@@ -28,7 +33,7 @@ public class Conexion {
         try
         {
             //------------------ CLIENT REQUEST
-            FileInputStream fileInputStream = new FileInputStream(new File(path) );
+            FileInputStream fileInputStream = new FileInputStream(new File() );
             // open a URL connection to the Servlet
             URL url = new URL(urlString);
             // Open a HTTP connection to the URL
