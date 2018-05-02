@@ -1,6 +1,7 @@
 package com.example.user.agroevolve;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -13,7 +14,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -38,8 +43,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     public MapFragment() {
         // Required empty public constructor
     }
-
-
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,16 +103,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         mGoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-
+        float hue = 200;
         //aqui se agregan marcadores estos pueden ayudar a marcar las zonas infectadas y poner mensajes
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(40.689247, -74.044502)).title("stadddff liberty").snippet("I hop to go ther some day"));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(40.689248, -74.044503)).title("zona de noseque ").snippet("ajjajajajajaj day"));
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(40.689247, -74.044502)).title("stadddff liberty").snippet("I hop to go ther some day").icon(BitmapDescriptorFactory
+                .defaultMarker(hue)));
 
-        //aqui se establece la camara que ayuda esta se puede limitar a solo ver la finca 
+
+        //aqui se establece la camara que ayuda esta se puede limitar a solo ver la finca
         CameraPosition Liberty = CameraPosition.builder().target(new LatLng(40.689247, -74.044502)).zoom(16).bearing(0).tilt(45).build();
 
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
