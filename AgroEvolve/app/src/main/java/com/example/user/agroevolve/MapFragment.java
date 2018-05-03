@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -37,6 +38,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
 
     private OnFragmentInteractionListener mListener;
     GoogleMap mGoogleMap;
+
     MapView mMapView;
     View mView;
 
@@ -47,6 +49,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -101,18 +105,21 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
         MapsInitializer.initialize(getContext());
 
         mGoogleMap = googleMap;
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         float hue = 200;
+        float hue2 = 100;
         //aqui se agregan marcadores estos pueden ayudar a marcar las zonas infectadas y poner mensajes
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(40.689247, -74.044502)).title("stadddff liberty").snippet("I hop to go ther some day").icon(BitmapDescriptorFactory
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(6.118620, -75.396184)).title("Hera 253").snippet("Se encontro las siguientes plagas...").icon(BitmapDescriptorFactory
                 .defaultMarker(hue)));
 
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(6.118781, -75.397020)).title("Hera 265").snippet("Se encontro las siguientes plagas...").icon(BitmapDescriptorFactory
+                .defaultMarker(hue2)));
 
         //aqui se establece la camara que ayuda esta se puede limitar a solo ver la finca
-        CameraPosition Liberty = CameraPosition.builder().target(new LatLng(40.689247, -74.044502)).zoom(16).bearing(0).tilt(45).build();
+        CameraPosition Flores1 = CameraPosition.builder().target(new LatLng(6.118858, -75.395448)).zoom(16).bearing(0).tilt(45).build();
 
-        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
+        googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(Flores1));
     }
 
 

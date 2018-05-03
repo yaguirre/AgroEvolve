@@ -11,6 +11,4 @@
         android:id="@+id/map"
         />
 
-
-
 </FrameLayout>
